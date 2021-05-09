@@ -1,10 +1,11 @@
-# twiddler-oran-layout
+# Twiddler Oran Layout
 
-An AI Generated Twiddler Layout Optimised for Multi Character Chords
+An AI generated Twiddler layout optimised for multi character chords
 
-## Just the Files Please
+## Just the Files Please - I Know What I'm Doing
 
 Sure:
+
 - [twiddler.cfg](twiddler.cfg)
 - [Layout exported to CSV](twiddler_cfg_oran.csv)
 
@@ -12,15 +13,15 @@ Sure:
 
 A [Twiddler](https://twiddler.tekgear.com/) is a wearable one-handed chord keyboard. When strapped to one's palm, the fingers can access twelve buttons in a three by four grid. The thumb can reach four modifier keys: Num, Alt, Ctrl and Shift. You use combinations of these buttons to emulate a full-sized keyboard.
 
-Unlike a typical keyboard, output is produced when you release keys, not when you press them. This is necessary to allow you to hold down multiple keys.
+Unlike a typical keyboard, output is produced when you release keys, not when you press them. This is necessary to allow you to hold down multiple keys. Some characters are produced by holding and then releasing a single key, others are produced when you hold and release multiple keys.
 
 ## Why Do You Use One?
 
 I picked up some tendon damage to my right hand in my 20's. I've had an interest in alternative input devices ever since.
 
-## Multi Character Chords
+## What's a Multi Character Chord?
 
-As there are 254 possible combinations of these buttons, there is scope for additional functionality when compared to a typical 102 key keyboard. You could, say, store your e-mail or postal address as a single combination of keys if it's something you find you type often. Personally I find autofill and my IDE covers snippets like this quite well so I don't use this approach.
+As there are 254 possible combinations of the twelve buttons on a Twiddler, there is scope for additional functionality when compared to a typical 102 key keyboard. You could, say, store your e-mail or postal address as a single combination of keys if it's something you find you type often. Personally I find autofill and my IDE covers snippets like this quite well so I don't use this approach.
 
 What to do with all these extra slots then?
 
@@ -33,7 +34,7 @@ We can simplify this with the following plan:
 - Give the twelve most frequently used characters the easiest chords, i.e. a single key press.
 - Arrange them in such a fashion as it's possible to press the relevant two, three, and four letter combinations at the same time.
 
-You'll note from the layout that one of the four button columns produces 't', 'h', 'e', and 's' when individual buttons are pressed. It also produces the following multi character snippets when we press buttons in combination:
+You'll note from the layout (image in next section) that one of the four button columns produces 't', 'h', 'e', and 's' when individual buttons are pressed. It also produces the following multi character snippets when we press buttons in combination:
 
 | Letters used | Output when pressed together |
 | ------------ | ---------------------------- |
@@ -60,6 +61,8 @@ I'll put together a separate repo for the code I used to generate the layout, bu
 - Score each layout by determining how many high value combinations of characters are possible / how complex it is to press the keys
 - Kill off the low scoring layouts, replacing them with mutations of the high scoring layouts
 - Repeat until the top score stops changing for several generations
+
+Once done I then manually added navigation keys, numbers, function keys and so on in appropriate free spaces.
 
 ## The Layout
 
@@ -97,19 +100,21 @@ For reasons of space and readability some symbols are changed. Details below:
 | ↑      | Up arrow                              |
 | PG↑    | Page up                               |
 | →      | Right arrow                           |
-| ↓      | Down arrow
-| PG↓    | Page down
-| ←      | Left arrow
-| ↑↑     | Ctrl + up arrow
-| →→     | Ctrl + right arrow (Right one word)
-| ↓↓     | Ctrl + down arrow
-| ←←     | Ctrl + left arrow (Left one word)
-| ←|     | Enter
-| PSC    | Print Screen
-| DEL    | Delete
-| ESC    | Escape
-| HME    | Home
-| END    | End
-| TAB    | Tab
-| CAP    | Caps Lock
+| ↓      | Down arrow                            |
+| PG↓    | Page down                             |
+| ←      | Left arrow                            |
+| ↑↑     | Ctrl + up arrow                       |
+| →→     | Ctrl + right arrow (Right one word)   |
+| ↓↓     | Ctrl + down arrow                     |
+| ←←     | Ctrl + left arrow (Left one word)     |
+| ←|     | Enter                                 |
+| PSC    | Print Screen                          |
+| DEL    | Delete                                |
+| ESC    | Escape                                |
+| HME    | Home                                  |
+| END    | End                                   |
+| TAB    | Tab                                   |
+| CAP    | Caps Lock                             |
 | _      | Space bar                             |
+
+Note: the image above was generated by a PowerShell script based on a CSV export of the layout. I set it to, where possible, avoid showing duplicated information and grid squares that only had unassigned slots. You might find it useful to look at oran-layout-all-possible-combinations.png to see every possible combination: function, navigation, and numeric keys are grouped in this, making it somewhat easier to learn.
